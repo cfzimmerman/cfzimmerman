@@ -1,21 +1,20 @@
 #!/bin/bash
 
-git checkout --orphan gh-pages-temp
-yarn build
+# Reorganize the code in a temporary branch before pushing
+git checkout --orphan gh-pages-temp &&
+	yarn build &&
 
-# Delete all contents except `/dist`
-shopt -s extglob dotglob
-mv !(to_del|dist) to_del
-shopt -u dotglob
-rm -rf to_del
+	# Reorganize files so that only .git and the contents of dist remain
+	mkdir to_del &&
+	find . -maxdepth 1 ! -name . ! -name .git ! -name dist ! -name to_del -exec mv {} to_del \; &&
+	mv dist/* . &&
+	rm -rf dist to_del &&
 
-# Place `/dist`files where GitHub pages will see them.
-mv dist/* .
-rm -rf dist
+	# Deploy
+	git add . &&
+	git commit -m "Deploy to GitHub pages" &&
+	git push origin HEAD:gh-pages --force &&
 
-# Deploy and return
-git add .
-git commit -m "Deploy to GitHub pages"
-git push origin HEAD:gh-pages --force
-git checkout main
-git branch -D gh-pages-temp
+	# Clean up
+	git checkout main &&
+	git branch -D gh-pages-temp
