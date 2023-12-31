@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Reorganize the code in a temporary branch before pushing
-rm -r dist &&
+rm -rf dist &&
 	git checkout --orphan gh-pages-temp &&
 	yarn build &&
 
