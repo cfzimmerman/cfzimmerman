@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "parcel ./src/index.html",
+    "start": "parcel ./src/index.html --dist-dir ./docs",
     "build": "parcel build ./src/index.html --dist-dir ./docs --no-cache"
   },
   "devDependencies": {
