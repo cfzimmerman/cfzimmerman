@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "parcel ./src/index.html --dist-dir ./docs",
-    "build": "parcel build ./src/index.html --dist-dir ./docs --no-cache && touch ./docs/.nojekyll"
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html ./docs --no-cache",
+    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "devDependencies": {
     "parcel": "^2.10.3"
