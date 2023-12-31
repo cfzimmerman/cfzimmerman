@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel ./src/index.html --dist-dir ./docs",
-    "build": "parcel build ./src/index.html --dist-dir ./docs --no-cache"
+    "build": "parcel build ./src/index.html --dist-dir ./docs --no-cache && touch ./docs/.nojekyll"
   },
   "devDependencies": {
     "parcel": "^2.10.3"
