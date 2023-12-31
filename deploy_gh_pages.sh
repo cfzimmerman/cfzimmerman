@@ -14,8 +14,8 @@ rm -rf dist &&
 	# Deploy
 	git add . &&
 	git commit -m "Deploy to GitHub pages" &&
-	git push origin HEAD:gh-pages --force &&
+	git push origin HEAD:gh-pages --force
 
-	# Clean up
-	git checkout main &&
-	git branch -D gh-pages-temp
+# Clean up
+git checkout main
+git branch -D gh-pages-temp
