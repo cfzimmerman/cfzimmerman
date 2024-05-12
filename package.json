@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --no-cache --public-url ./"
+    "build": "parcel build --public-url REPLACEME/ --no-cache ./src/index.html && sed -i '' 's/REPLACEME/./g' ./dist/index.html"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
